@@ -1,0 +1,75 @@
+/* */
+
+#page{
+	width: 90%;
+	background-color: black;
+	color: white;
+	font: bold 1em Arimo;
+}
+#content{
+	width: 100%;
+	overflow: auto;
+	color: white;
+}
+
+h1{
+	position: absolute;
+	left: 20px;
+	top: 20px;
+	font-family: mistral;
+	font-size: 3em;
+	color: black;
+	margin-bottom: 20px;
+}
+
+ul{
+	position: absolute;
+	left: 20px;
+	top: 80px;
+}
+
+li{
+	display: block;
+	line-height: 1.2em;
+	font: bold 1.2em Arimo;
+}
+li a{
+	text-decoration: none;
+}
+
+li a:hover{
+	font-size: 1.3em;
+}
+
+#start{
+	width: 100%;
+}
+
+#Philosophy h2, p, #Portfolio h2, p {
+	margin: 20px;
+	float:left;
+	border-top: 2px solid white;
+	padding-top: 5px;
+}
+
+#Portfolio{
+	clear: left;
+}
+
+#Portfolio_container img{
+	width: 170px;
+	height: 205px;
+}
+
+#image1{
+	margin-left: 75px;
+}
+
+#image6{
+	margin-left: 180px;
+}
+
+footer{
+	font-size: 0.6em;
+	color: black;
+}
