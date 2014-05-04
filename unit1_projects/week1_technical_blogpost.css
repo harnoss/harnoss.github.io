@@ -1,3 +1,5 @@
+*{font-family: arial}
+
 #header{
     padding: 10px 0px;
 	border-top: 2px solid black;
@@ -19,4 +21,8 @@
 }
 #footer{
 	border-top: 2px solid black;
+}
+
+#line{
+    border-top: 2px solid black;
 }
