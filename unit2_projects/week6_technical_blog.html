@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>MY BLOG TEMPLATE</title>
+	<link rel="stylesheet" type="text/css" href="week1_technical_blogpost.css">
+</head>
+
+<body>
+	<div id="header">
+		<img id="image" src="https://pbs.twimg.com/profile_images/1778152954/J-Harnoss_1.PNG"/>
+		<div id="name">
+			<p><strong>Justin Harnoss</strong><br/>
+			Born in Berlin <br/> 
+			slept when the wall came down <br/>
+			Traveler ever since.</p>
+		</div>
+	</div>
+	<div id="line"></div>
+	
+	<div id="BlogPost1">
+		<p><strong>May 29, 2014</strong></p>
+		<p><strong>OOP vs functional programming</strong></p>
+		<p>There are already a lot of great explanations in the web on what is the difference between OOP and functional programming. <br/>Thus, I would like to try on an explanation that is targeted to musicians (who have an interest in programming):</p>
+
+		<p>Sometimes, coding is like composing music. If you compose music, you may create one tone after another and each of them flows into the next one. <br/>This is what you would call "functional" programming, or per the textbook definition <br/>"treats computation as the evaluation of mathematical functions and avoids state and mutable data."<br/> <br/>"Object oriented" programming, in contrast, creates higher-level rythms/themes that can take different shapes depending on when you play them. <br/>It works more like jazz, where you have different state of moods and depending on that the music changes. <br/>Or it works like the way a dj creates his tracks, drawing from different artists, sounds, and tracks and mixing these [objects] into new sounds. <br/> OOP - let's dance!</p>
+
+	</div>
+	
+	<div id="line"></div>
+
+	<div id="BlogPost1">
+
+		<p><strong>May 24, 2014</strong></p>
+		<p><strong>Instance methods and class methods</strong></p>
+		<p>There are two types of methods when it comes to classes: Instance methods and class methods:
+		<ol>
+			<li>Instance methods</li>
+			<li>Class methods ("singleton method")</li>
+		</ol>
+
+		<p><strong>Instance methods</strong> apply to all objects of a class and can be called by all of those. For example:</p>
+
+		<p>class Ticket<br/>
+		def initialize(venue, date)<br/>
+		@venue = venue<br/>
+		@date = date<br/>
+		end<br/>
+		<br/>
+		def price=(price)<br/>
+			@price = price<br/>
+		end<br/>
+		<br/>
+		def price<br/>
+			@price<br/>
+		end<br/>
+		<br/>
+		end<br/>
+		<br/>
+		new_ticket = Ticket.new("Berlin stage", "12/12/2014")<br/>
+		new_ticket.price = 20.00<br/>
+		puts new_ticket.price<br/>
+		=> 20.0</p>
+		<p><strong>Class methods</strong> apply only to the Class itself and cannot be called by any objects of a class. At the same time, they can be called even though there are no objects to the class. Thus, class methods work even without any instances and/or objects. A good example is creating a method to convert currencies:</p>
+		<p>class Currency_converter<br/>
+		def Currency_converter.usd_to_eur(amount_in_usd)<br/>
+			amount_in_eur = amount_in_usd * 1.3<br/>
+		end
+		<p>puts Currency_converter.usd_to_eur(100)<br/>
+		=> 130.0</p>
+	</div>
+<div id="line"></div>
+
+	<div id="BlogPost1">
+		<p><strong>May 17, 2014</strong></p>
+		<p><strong>#map, #cycle, and #group_by - how they work</strong></p>
+
+		<h5>#Map</h5>
+
+		<p> According to the book "The well-grounded Rubyist", the map method is one of the most powerful and important enumerable or collection operations available in Ruby. There are 3 important things to know about map:</p>
+		<ol>
+		<li>It always returns an array</li>
+		<li>The size of the array is always the same size as the original enumerable</li>
+		<li>Its elements consist of the result of calling the code block on each element in the original object</li>
+		</ol>
+		<p> Mapping an examplayr [1,2,3] array through a block that multiplies each
+		item by 10 results in the new array [10,20,30].</p>
+
+		<p>>> array = [1,2,3]<br/>
+		=> [1, 2, 3]<br/>
+		>> array.map {|n| n * 10 }<br/>
+		=> [10, 20, 30]</p>
+
+		<p>Thus, #map is similar to #each except for one crucial point: <br/>
+		#each returns its receiver, but map returns a new array.</p>
+		
+		<h5>#Cycle</h5>
+
+		<p>#cycle gives you a way to loop ("cycle") through an array several times (as specified by an <br/>integer). You can use it to decide how many each-like runs you want to perform consecutively.</p>
+
+		<p> Here's a great example from the Book "The well-grounded Rubyist" on playing cards:</p>
+
+		<p> class PlayingCard<br/>
+		SUITS = %w{ clubs diamonds hearts spades }<br/>
+		RANKS = %w{ 2 3 4 5 6 7 8 9 10 J Q K A }<br/>
+		class Deck<br/>
+		attr_reader :cards<br/>
+		def initialize(n=1)<br/>
+		@cards = []<br/>
+		SUITS.cycle(n) do |s|<br/>
+		RANKS.cycle(1) do |r|<br/>
+		@cards << "#{r} of #{s}"<br/>
+		end<br/>
+		end<br/>
+		end<br/>
+		end<br/>
+		end<br/>
+
+		<h5>#Group_by </h5>
+		<p> If you want to count how often each word turns up in a text, Group_by will be what you need.<br/>Let's start with an example:</p>
+
+		<p>>> text = %w{ a bb cc dd eee fff gggg }<br/>
+		> ["a", "bb", "cc", "dd", "eee", "fff", "gggg"]<br/>
+		>> text.group_by {|word| count.size }<br/>
+		=> {1=>["a"], 2=>["bb", "cc", "dd"], 3=>["eee", "fff"], 4=>[gggg]}</p>
+
+		<p>The block {|word| word.size } returns an integer for each word. The hash<br/>
+		returned by the entire group_by operation is keyed to the various sizes (1, 2, 3, 4), and<br/>
+		the values are arrays containing all the strings from the original array that are of the<br/>
+		size represented by the respective keys.</p>
+
+	</div>
+<div id="line"></div>
+
+	<div id="BlogPost1">
+		<p><strong>May 09, 2014</strong></p>
+		<p>Why is JavaScript so popular in web development?</p>
+
+		<p>JavaScript is popular for many different reasons and as such, being discussed extensively in related blogs. There are already detailed evaluations and descriptions of JS all over the web, so let me try to boil it down to the core. There are three things that you should remember about why JS rocks:</p>
+		<p>First, <strong> it is <em> widely </em> applicable </strong> as every browser supports it and as you can make all parts of an interactive web application work (both front- and back end, with node);</p>
+		<p>Second, <strong> it is <em> easily </em> applicable </strong> as there is a huge open source community to seek out help from and there are tons of projects libraries, frameworks hosted on Github that you can leverage;</p>
+		<p>Third, <strong> it is fun </strong> as you see the results immediately and visually and as such, you stay inspired and motivated! </p>
+		<strong>What else do you need to know to get started?</strong>
+	</p>
+	</div>
+<div id="line"></div>
+
+	<div id="BlogPost1">
+		<p><strong>May 03, 2014</strong></p>
+		<p>Everyone who is new to CSS will eventually run into this existential question:
+			"What are the differences between relative, absolute, and fixed positioning?"
+
+			The basic structure of a website can be best compared to a chain of pearls that is going from left to right, one element after another. Based on this,<br />
+			<strong>Relative positioning</strong> is like taking one of the pearls out of it's default position in the chain and moving it up or down, left or right. The positioning commands are always <em>relative to its default position</em>. Two things are important to know: The pearl is still part of the chain (the flow) and the other pearls still think that the pearl is in its default position.<br />
+			<strong>Absolute positioning</strong> is like taking one of the pearls and removing it from the chain. Then, one specifies the position top-right-bottom-left <em>relative to its parent element</em> (not relative to its default position).<br />
+			<strong>Fixed positioning</strong> is exactely like absolute position with one difference: The positioning is always <em>relative to the browser window</em> (not its parent element) and is fixed there, so it stays even if one scrolls the page up or down.</p>
+			<p>A great way to practice positioning is to build a simple 2x2 matrix in html and CSS. Look here is an example to hone your skills:</p>
+			<a href="http://jsfiddle.net/harnoss/hyZ9T/">2x2 in html/CSS practice challenge</a>
+	</div>
+<div id="line"></div>
+		<p><strong>April 26, 2014</strong></p>
+	<div id="BlogPost1_content">
+		<p>Today, I wanna share three websites with you that for me stand out in terms of user experience and design: <a href="epipheo.com">Epipheo</a>, <a href="pocket.com">Pocket</a>, and <a href="bluebottlecoffee.com">BlueBottle</a></p>
+
+		<p>There is one particular aspect that all of these three websites have in common: An almost perfect fit between design and product/service positioning - or put differently, the way the site feels and the way these companies want to be felt by their customers. </p>
+
+		<p> Pocket feels simple, convenient, to-the-point (and that's what they do for you). BlueBottle does not just sell coffee, but rather a way of live/a way of enjoying and experiencing your favorite drink. This is how their website feels as well - a tribute to coffee. It takes some time to realize that it also is a shop. Epipheo finally, stands out as a site that screams at you "We are creative!" (and that's why you want their services). It is a website you have not seen before and you will remember. This is exactely what they promise to their clients: To make their ideas stick. </p>
+
+		<p> Getting into the details of the user experience of these three websites, there are two cases I would like to point to where designers have done an especially good job: One, the shop navigation at BlueBottle; two, the "contact for consultation" area at Epipheo. </p>
+
+		<p> BlueBottle faced the question: "How do people shop for coffee?" Other shops answer this question with "Easy, they look for coffee brands or where the beans come from!" so that's the way they structure their shop. BlueBottle, however, takes a different route: They structure the shop navivation around the question of "How do you brew your coffee?" and then offer different kinds of brewing methods (from french press to espresso) to choose from. Clearly, a way to help customers find what they look for (as a coffee fan I feel that they have hit the nail on the head with this menu) as well as communicate what BlueBottle stands for: Not just another coffee shop, but one that knows coffee better than anyone. </p>
+
+		<p> Epipheo on the other hand, uses its website to generate leads for prospective clients. So how do you make users getting in touch with you/giving you their contact without coming across as too agressively selling your service? Answer: Make it look like accepting the invitation to a fun birthday party instead of a boring business meeting. Genius.</p>
+	</div>
+	<div id="footer"></div>
+
+</body>
+
+</html>
